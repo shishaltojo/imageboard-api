@@ -1,0 +1,7 @@
+{
+  "name": "imageboard-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alejandro <alex.aleman.public@gmail.com>",
+  "license": "MIT"
+}

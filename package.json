@@ -4,9 +4,7 @@
   "main": "index.ts",
   "author": "Alejandro <alex.aleman.public@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "start": "deno run index.ts"
-  },
+  "scripts": { },
   "dependencies": {
     "express": "^4.17.3"
   },

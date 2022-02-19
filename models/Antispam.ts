@@ -15,6 +15,7 @@ const Antispam = (sequelize:any) => {
 			type: DataTypes.STRING(40),
 			collate: 'ascii_bin',
 			allowNull: false,
+			primaryKey: true,
 		},
 		created: {
 			type: DataTypes.INTEGER,

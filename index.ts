@@ -1,14 +1,17 @@
 import express from 'express';
 import { Sequelize } from 'sequelize';
 
-import User from './models/User';
+import Antispam from './models/Antispam';
 
-const sequelize = new Sequelize('postgres://alejandro:123qweasd@localhost:5432/mydb');
+const sequelize = new Sequelize('postgres://alejandro:123qweasd@localhost:5432/mydb', {
+	define: {
+		underscored: true,
+		freezeTableName: true,
+	}
+});
 
-const user = User(sequelize);
-user.sync()
-	.then(() => console.log('User table created'))
-	.catch((error:any) => console.error(error));
+const antispam = Antispam(sequelize);
+antispam.sync();
 
 const app = express();
 

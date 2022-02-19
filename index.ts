@@ -1,9 +1,7 @@
 import express from 'express';
-import pgPromise, { IMain, IDatabase } from 'pg-promise';
+import { Sequelize } from 'sequelize';
 
-const pgp: IMain = pgPromise();
-
-const db = pgp('postgres://alejandro:123qweasd@localhost:5432/mydb');
+const sequelize = new Sequelize('postgres://alejandro:123qweasd@localhost:5432/mydb');
 
 const app = express();
 
@@ -20,23 +18,13 @@ app.get<
   Record<string, never>,
   { page: number, limit: number, breed: 'labrador' | 'poodle' | 'pug' }
 >('/', (req, res) => {
-	db.one('SELECT * FROM dog WHERE id=1')
-		.then(data => {
-			console.log(data);
+	sequelize.authenticate()
+		.then(() => {
+			console.log('Connection has been established successfully.');
 		})
-		.catch(error => console.error(error));
-
-	res.send({
-		data: [
-			{
-				name: 'Fido',
-				breed: 'labrador',
-				adopted_at: null,
-				birth_date: null,
-			}
-		],
-		message: 'success',
-	});
+		.catch(error => {
+			console.error('Unable to connect to the database:', error);
+		});
 });
 
 app.listen(3000, () => {

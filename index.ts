@@ -6,8 +6,9 @@ import User from './models/User';
 const sequelize = new Sequelize('postgres://alejandro:123qweasd@localhost:5432/mydb');
 
 const user = User(sequelize);
-
-console.log(user === sequelize.models.user);
+user.sync()
+	.then(() => console.log('User table created'))
+	.catch((error:any) => console.error(error));
 
 const app = express();
 

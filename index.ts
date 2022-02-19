@@ -1,23 +1,17 @@
 import express from 'express';
 import { Sequelize } from 'sequelize';
 
+import User from './models/User';
+
 const sequelize = new Sequelize('postgres://alejandro:123qweasd@localhost:5432/mydb');
+
+const user = User(sequelize);
+
+console.log(user === sequelize.models.user);
 
 const app = express();
 
-interface Dog {
-  name: string;
-  breed: 'labrador' | 'poodle' | 'pug';
-  adopted_at: Date | null;
-  birth_date: Date | null;
-}
-
-app.get<
-  Record<string, never>,
-  { data: Dog[], message: string },
-  Record<string, never>,
-  { page: number, limit: number, breed: 'labrador' | 'poodle' | 'pug' }
->('/', (req, res) => {
+app.get('/', (req, res) => {
 	sequelize.authenticate()
 		.then(() => {
 			console.log('Connection has been established successfully.');

@@ -31,10 +31,6 @@
         "semi": [
             "error",
             "always"
-        ],
-        "space-in-brackets": [
-            "error",
-            "always"
-        ],
+        ]
     }
 }

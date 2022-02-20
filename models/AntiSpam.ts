@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 
 const AntiSpam = (sequelize:any) => {
-  const AntiSpam = sequelize.define('antiSpam', {
+  const AntiSpam = sequelize.define('anti_spam', {
     board: {
       type: DataTypes.STRING(58),
       charset: 'utf8',
@@ -32,11 +32,9 @@ const AntiSpam = (sequelize:any) => {
   }, {
     indexes: [
       {
-        name: 'board',
         fields: ['board', 'thread']
       },
       {
-        name: 'expires',
         fields: ['expires']
       }
     ]

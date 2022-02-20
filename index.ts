@@ -2,16 +2,21 @@ import express from 'express';
 import { Sequelize } from 'sequelize';
 
 import AntiSpam from './models/AntiSpam';
+import Ban from './models/Ban';
 
 const sequelize = new Sequelize('postgres://alejandro:123qweasd@localhost:5432/mydb', {
   define: {
+    paranoid: true,
     underscored: true,
     freezeTableName: true
   }
 });
 
 const antiSpam = AntiSpam(sequelize);
+const ban = Ban(sequelize);
+
 antiSpam.sync();
+ban.sync();
 
 const app = express();
 

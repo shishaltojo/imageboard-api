@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 
-const Antispam = (sequelize:any) => {
-  const Antispam = sequelize.define('antispam', {
+const AntiSpam = (sequelize:any) => {
+  const AntiSpam = sequelize.define('antiSpam', {
     board: {
       type: DataTypes.STRING(58),
       charset: 'utf8',
@@ -42,7 +42,7 @@ const Antispam = (sequelize:any) => {
     ]
   });
 
-  return Antispam;
+  return AntiSpam;
 };
 
-export default Antispam;
+export default AntiSpam;

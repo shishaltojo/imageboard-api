@@ -1,7 +1,7 @@
 import express from 'express';
 import { Sequelize } from 'sequelize';
 
-import Antispam from './models/Antispam';
+import AntiSpam from './models/AntiSpam';
 
 const sequelize = new Sequelize('postgres://alejandro:123qweasd@localhost:5432/mydb', {
   define: {
@@ -10,8 +10,8 @@ const sequelize = new Sequelize('postgres://alejandro:123qweasd@localhost:5432/m
   }
 });
 
-const antispam = Antispam(sequelize);
-antispam.sync();
+const antiSpam = AntiSpam(sequelize);
+antiSpam.sync();
 
 const app = express();
 

@@ -5,32 +5,33 @@ const Antispam = (sequelize:any) => {
 		board: {
 			type: DataTypes.STRING(58),
 			charset: 'utf8',
-			allowNull: false,
+			allowNull: false
 		},
 		thread: {
 			type: DataTypes.INTEGER,
-			defaultValue: null,
+			defaultValue: null
 		},
 		hash: {
 			type: DataTypes.STRING(40),
 			collate: 'ascii_bin',
 			allowNull: false,
-			primaryKey: true,
+			primaryKey: true
 		},
 		created: {
 			type: DataTypes.INTEGER,
-			allowNull: false,
+			allowNull: false
 		},
 		expires: {
 			type: DataTypes.INTEGER,
-			defaultValue: null,
+			defaultValue: null
 		},
 		passed: {
 			type: DataTypes.INTEGER,
-			allowNull: false,
+			allowNull: false
 		}
 	}, {
-
+		indexes: [
+		]
 	});
 
 	return Antispam;

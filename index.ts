@@ -6,7 +6,7 @@ import Antispam from './models/Antispam';
 const sequelize = new Sequelize('postgres://alejandro:123qweasd@localhost:5432/mydb', {
 	define: {
 		underscored: true,
-		freezeTableName: true,
+		freezeTableName: true
 	}
 });
 
